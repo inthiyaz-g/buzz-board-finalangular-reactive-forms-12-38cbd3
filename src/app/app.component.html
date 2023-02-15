@@ -1,0 +1,89 @@
+<h1 style="text-align:center">buzzboard task</h1>
+<div>
+  <form [formGroup]="userForm" (ngSubmit)="onsubmitReg()">
+    <label Class="w-full text-md font-light">First Name &nbsp;</label>
+    <input type="text" formControlName="firstName" placeholder="First Name" />
+    <br /><br />
+    <label Class="w-full text-md font-light">Last Name &nbsp;</label>
+
+    <input type="text" formControlName="lastName" placeholder="Last Name" />
+    <br /><br />
+    <label Class="w-full text-md font-light">E-Mail &nbsp;</label>
+
+    <input type="text" formControlName="email" placeholder="Email" />
+    <br /><br />
+    <label Class="w-full text-md font-light">Phone &nbsp;</label>
+
+    <input type="text" formControlName="phone" placeholder="Phone" />
+    <br /><br />
+    <label Class="w-full text-md font-light">Company &nbsp;</label>
+
+    <input type="text" placeholder="company" formControlName="company" />
+    <br /><br />
+    <label Class="w-full text-md font-light">Gender &nbsp;</label><br />
+
+    <input
+      type="radio"
+      placeholder="First Name"
+      formControlName="gender"
+      value="male"
+      id="female"
+    />      <label for="male">Male</label><br />
+    <input
+      type="radio"
+      placeholder="First Name"
+      formControlName="gender"
+      value="female"
+      if="female"
+    />
+
+      <label for="female">Female</label><br />
+
+    <br /><br />
+
+    <label Class="w-full text-md font-light">DOB &nbsp;</label>
+
+    <input type="date" formControlName="dob" value="2020-11-30" />
+
+    <br /><br />
+    <label Class="w-full text-md font-light">Password &nbsp;</label>
+
+    <input type="text" placeholder="First Name" />
+    <br /><br />
+    <label Class="w-full text-md font-light">Confirm Password &nbsp;</label>
+
+    <input type="text" placeholder="First Name" />
+    <br /><br />
+    <button type="submit">Register</button>
+    &nbsp;&nbsp;&nbsp;
+    <button type="submit">Cancel</button>
+  </form>
+  <table>
+    <tr>
+      <th>FirstName</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Company</th>
+      <th>DOB</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let userdata of userData">
+      <td>{{ userdata.firstName }}</td>
+      <td>{{ userdata.lastName }}</td>
+      <td>{{ userdata.email }}</td>
+      <td>{{ userdata.phone }}</td>
+      <td>{{ userdata.company }}</td>
+
+      <td>{{ userdata.dob }}</td>
+
+      <!-- <td >{{userdata.email}}</td> -->
+      <td><button type="submit" (click)="editData(userdata)">Edit</button></td>
+      <td>
+        <button type="submit" (click)="deleteUser(userdata)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
